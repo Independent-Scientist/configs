@@ -1,0 +1,374 @@
+###
+#Time-stamp: <2015-01-15 06:30:39 harj0>
+###
+#.......
+# Autorun
+#.......
+#┌─────────────────────────────────────────┐
+#│   / \  _   _| |_ ___ |  _ \ _   _ _ __  │
+#│  / _ \| | | | __/ _ \| |_) | | | | '_ \ │
+#│ / ___ \ |_| | || (_) |  _ <| |_| | | | |│
+#│/_/   \_\__,_|\__\___/|_| \_\\__,_|_| |_|│
+#└─────────────────────────────────────────┘
+exec            --no-startup-id compton --config ~/.config/compton.Candy -b
+exec            --no-startup-id /home/harj0/ScreenLayout-Arandr.sh
+
+exec            --no-startup-id xfce4-panel --disable-wm-check
+exec            --no-startup-id clipit
+
+exec            --no-startup-id nitrogen --restore
+
+exec_always     --no-startup-id xrdb -load ~/.Xresources
+
+
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set         $mod Mod4
+
+#.......
+# font
+#.......
+#┌─────────────────────────┐
+#│ _____           _       │
+#│|  ___|__  _ __ | |_ ___ │
+#│| |_ / _ \| '_ \| __/ __|│
+#│|  _| (_) | | | | |_\__ \│
+#│|_|  \___/|_| |_|\__|___/│
+#└─────────────────────────┘
+#font -*-cure-medium-*-*-*-11-*-*-*-*-*-*-*
+#font pango:DejaVu Sans Mono 8
+font            pango:DejaVu Sans Mono 10, Icons 10
+
+
+
+
+#┌──────────────────────────────────────────────────────────┐
+#│  ____                       _____      _                 │
+#│ / ___| __ _ _ __  ___   _  | ____|_  _| |_ _ __ __ _ ___ │
+#│| |  _ / _` | '_ \/ __|_| |_|  _| \ \/ / __| '__/ _` / __|│
+#│| |_| | (_| | |_) \__ \_   _| |___ >  <| |_| | | (_| \__ \│
+#│ \____|\__,_| .__/|___/ |_| |_____/_/\_\\__|_|  \__,_|___/│
+#│            |_|                                           │
+#│                                                          │
+#│     (from https://github.com/Airblader/i3/tree/gaps-next)│
+#└──────────────────────────────────────────────────────────┘
+# In your i3 config, you can set a global gap size as shown below. This is the default
+# value that will be used for all workspaces:
+#
+#    gaps inner <px>
+#    gaps outer <px>
+#
+# Additionally, you can issue commands with the following syntax. This is useful, for
+# example, to bind keys to changing the gap size:
+#
+#    gaps inner|outer current|all set|plus|minus <px>
+#
+## Examples
+#    gaps inner all set 20
+#    gaps outer current plus 5
+#
+# Here are the individual parts explained:
+#    inner|outer -specifies whether you want to modify inner gaps (gaps between adjacent
+#      containers) or outer gaps (gaps between the edge of a screen and a container).
+#    current|all -determines whether you want to modify the setting for the current workspace
+#      only or for all workspaces.
+#    set|plus|minus -allows you to either set a new, fixed value or make a relative change (in-/decrement).
+#set $default_gaps_inner 12
+#set $default_gaps_outer 0
+#gaps inner $default_gaps_inner
+#gaps outer $default_gaps_outer
+
+#set $mode_gaps Gaps: (o) outer, (i) inner
+#set $mode_gaps_outer Outer Gaps: +|-|d|0 (local), Shift + +|-|d|0 (global)
+#set $mode_gaps_inner Inner Gaps: +|-|d|0 (local), Shift + +|-|d|0 (global)
+#bindsym $mod+Shift+g mode "$mode_gaps"
+
+#mode "$mode_gaps" {
+#    bindsym o mode "$mode_gaps_outer"
+#    bindsym i mode "$mode_gaps_inner"
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#mode "$mode_gaps_inner" {
+#    bindsym plus gaps inner current plus 5
+#    bindsym minus gaps inner current minus 5
+#    bindsym 0 gaps inner current set 0
+#    bindsym d gaps inner current set $default_gaps_inner
+#    bindsym Shift+plus gaps inner all plus 5
+#    bindsym Shift+minus gaps inner all minus 5
+#    bindsym Shift+0 gaps inner all set 0
+#    bindsym Shift+d gaps inner all set $default_gaps_inner
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#mode "$mode_gaps_outer" {
+#    bindsym plus gaps outer current plus 5
+#    bindsym minus gaps outer current minus 5
+#    bindsym 0 gaps outer current set 0
+#    bindsym d gaps outer current set $default_gaps_outer
+#    bindsym Shift+plus gaps outer all plus 5
+#    bindsym Shift+minus gaps outer all minus 5
+#    bindsym Shift+0 gaps outer all set 0
+#    bindsym Shift+d gaps outer all set $default_gaps_outer
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+
+
+
+# Set default container layout
+#workspace_layout stacking
+# for_window [class="^Thunderbird$"] floating enable
+for_window [class="^Thunar$"] floating enable
+for_window [class="^Clementine$"] floating enable
+for_window [class="^xfce4-taskmanager$"] floating enable
+for_window [class="^xfce4-panel$"] floating enable
+for_window [class="Mousepad"] floating toggle
+for_window [class="^pamac-manager$"] floating enable
+#for_window [class="URxvt"] floating enable
+for_window [class="Nitrogen"] floating enable
+for_window [class="Xfce4-appfinder"] floating enable
+#for_window [class="Spotify"] floating enable
+for_window [class="Terminator"] floating enable
+for_window [class="Gpick"] floating enable
+for_window [class="Conky"] floating enable
+for_window [class="KRuler"] floating enable
+
+for_window [class="Yakuake"] floating enable
+
+#...........
+# Keybinds
+#...........
+#┌────────────────────────────────────────┐
+#│ _  __          ____  _           _     │
+#│| |/ /___ _   _| __ )(_)_ __   __| |___ │
+#│| ' // _ \ | | |  _ \| | '_ \ / _` / __|│
+#│| . \  __/ |_| | |_) | | | | | (_| \__ \│
+#│|_|\_\___|\__, |____/|_|_| |_|\__,_|___/│
+#│          |___/                         │
+#└────────────────────────────────────────┘
+
+# Toggle status bar
+bindsym $mod+b bar mode toggle
+# Open i3-input textbox
+bindsym $mod+Control+i exec i3-input
+
+
+
+# start a terminal
+bindsym         $mod+Return exec urxvt
+# kill focused window
+bindsym         $mod+q kill
+# start dmenu (a program launcher)
+#bindsym            $mod+d exec dmenu_run -fn  "-jmk-neep-medium-r-normal--18-100-75-75-c-60-iso8859-1" -nb "#101010" -nf "#5f5f5f" -sb "#191919" -sf "#1155FF"
+
+bindsym         $mod+d exec rofi -rnow
+#bindsym            $mod+t exec terminator
+
+    # Media Keys? YessSir
+#bindsym            XF86AudioRaiseVolume exec amixer set 'Master' 4%+
+#bindsym            XF86AudioLowerVolume exec amixer set 'Master' 4%-
+#bindsym            XF86AudioMute exec amixer set 'Master' 0%
+
+
+
+# Fave AppsZZZzzzZZ
+bindsym         $MOD+y exec emacs
+bindsym         $MOD+w exec firefox
+bindsym         $MOD+c exec chromium
+bindsym         $mod+f exec thunar
+# SCRATCHPAD CREATE
+bindsym         $mod+minus move scratchpad
+# SCRATCHPAD SHOW
+bindsym         $mod+Tab scratchpad show
+
+
+# alternatively, you can use the cursor keys:
+bindsym         $mod+Left focus left
+bindsym         $mod+Down focus down
+bindsym         $mod+Up focus up
+bindsym         $mod+Right focus right
+# alternatively, you can use the cursor keys:
+bindsym         $mod+Shift+Left move left
+bindsym         $mod+Shift+Down move down
+bindsym         $mod+Shift+Up move up
+bindsym         $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym         $mod+h split h
+# split in vertical orientation
+bindsym         $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym         $mod+Shift+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym         $mod+Shift+e layout stacking
+bindsym         $mod+Shift+t layout tabbed
+bindsym         $mod+Shift+s layout split
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier   $mod
+# toggle tiling / floating
+bindsym         $mod+space floating toggle
+bindsym         $mod+p border toggle
+# change focus between tiling / floating windows
+bindsym         $mod+Shift+Space focus mode_toggle
+#..........
+# windows
+#..........
+new_window      pixel 1
+new_float       pixel 1
+
+# focus the parent container
+bindsym         $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+workspace_auto_back_and_forth yes
+bindsym $mod+Menu workspace next
+
+# Fancy names for workspaces
+set $w1 1:
+set $w2 2:
+set $w3 3:͚ͣ ͬ͟ ͭ͜
+set $w4 4:
+set $w5 5:
+workspace "6:" output DFP1
+set $w7 7:
+set $w0 
+
+
+bindsym $mod+1 workspace $w1
+bindsym $mod+2 workspace $w2
+bindsym $mod+3 workspace $w3
+bindsym $mod+4 workspace $w4
+bindsym $mod+5 workspace $w5
+bindsym $mod+6 workspace 6:
+bindsym $mod+7 workspace $w7
+bindsym $mod+0 workspace $w0
+
+# # switch to workspace⮂⮀⃫⃪⃭⃬⃩
+# bindsym           $mod+1 workspace 1:wEb
+# bindsym           $mod+2 workspace 2:c0de
+# bindsym           $mod+3 workspace 3:gFx
+# bindsym           $mod+4 workspace 4:zZz
+# bindsym           $mod+5 workspace 5:cLi
+# bindsym           $mod+6 workspace 6:sYs
+
+#bindsym $mod+Shift+0 workspace back_and_forth
+
+# move focused container to workspace
+bindsym         $mod+Shift+1 move container to workspace $w1
+bindsym         $mod+Shift+2 move container to workspace $w2
+bindsym         $mod+Shift+3 move container to workspace $w3
+bindsym         $mod+Shift+4 move container to workspace $w4
+bindsym         $mod+Shift+5 move container to workspace $w5
+bindsym         $mod+Shift+6 move container to workspace 6:
+bindsym         $mod+Shift+7 move container to workspace $w7
+bindsym         $mod+Shift+8 move container to workspace $w8
+
+# Move windows between monitors
+bindsym         $mod+Shift+Delete move container to output right
+
+#  Testing if all this works by spawning something on the new output at start
+
+exec --no-startup-id i3-msg 'workspace 6:; exec thunderbird; workspace 1'
+
+# 1:wEb
+# 2:c0de
+# 3:gFx
+# 4:zZz
+# 5:tr0n
+# 6:sYs
+# reload the configuration file
+bindsym         $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym         $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym         $mod+Shift+q exec "i3-nagbar -t warning -m 'LOL!, you Quit?' -b 'Yup' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode            "resize" {
+# These bindings trigger as soon as you enter the resize mode
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+# bindsym       j resize shrink width 10 px or 10 ppt
+# bindsym       k resize grow height 10 px or 10 ppt
+# bindsym       i resize shrink height 10 px or 10 ppt
+# bindsym       l resize grow width 10 px or 10 ppt
+
+# same bindings, but for the arrow keys
+bindsym     Left resize shrink width 2 px or 2 ppt
+bindsym     Up resize grow height 2 px or 2 ppt
+bindsym     Down resize shrink height 2 px or 2 ppt
+bindsym     Right resize grow width 2 px or 2 ppt
+
+# back to normal: Enter or Escape
+bindsym     Return mode "default"
+bindsym     Escape mode "default"
+}
+
+bindsym         $mod+r mode "resize"
+
+#####
+# @ # Status bar
+#####
+#┌───────────────────────────────────────────────┐
+#│ ____  _        _             ____             │
+#│/ ___|| |_ __ _| |_ _   _ ___| __ )  __ _ _ __ │
+#│\___ \| __/ _` | __| | | / __|  _ \ / _` | '__|│
+#│ ___) | || (_| | |_| |_| \__ \ |_) | (_| | |   │
+#│|____/ \__\__,_|\__|\__,_|___/____/ \__,_|_|   │
+#└───────────────────────────────────────────────┘
+
+bar {
+  mode      dock
+  position      bottom
+#  height 20
+  font          pango:Icons 10
+  ###output DFP2
+  tray_output primary
+#font -*-cure-medium-*-*-*-11-*-*-*-*-*-*-*
+#font pango:DejaVu Sans Mono bold 10
+# font -*-ohsnap.icons-medium-r-normal-*-11-*-*-*-*-*-*-*
+    workspace_buttons   yes
+    status_command python3 ~/.i3/bar.py
+#status_command i3status
+#status_command     ~/.i3/Extra/conky-bar.sh
+#status_command i3blocks
+#status_command i3pystatus
+colors {
+#name              #border #bg     #text
+focused_workspace  #978965 #402e2e #978965
+active_workspace   #402e2e #402e2e #978965
+inactive_workspace #402e2e #402e2e #978965
+urgent_workspace   #402e2e #402e2e #978965
+statusline         #978965
+background         #1e1e1e
+separator          #402e2e
+  }
+}
+
+#..........
+# colors
+#..........
+#┌─────────────────────────────┐
+#│  ____      _                │
+#│ / ___|___ | | ___  _ __ ___ │
+#│| |   / _ \| |/ _ \| '__/ __|│
+#│| |__| (_) | | (_) | |  \__ \│
+#│ \____\___/|_|\___/|_|  |___/│
+#└─────────────────────────────┘
+# client.focused         #859900 #859900 #fdf6e3 #859900
+# client.focused_inactive  #073642 #073642 #eee8d5 #6c71c4
+# client.unfocused   #073642 #073642 #93a1a1 #586e75
+# client.urgent            #d33682 #d33682 #fdf6e3 #dc322f
+# Colors
+#                         BORDER  BACK    TEXT     INDICATOR
+client.focused            #ff8310 #402e2e #ff8310 #0000ff
+client.unfocused          #402e2e #402e2e #2e2e40 #0000ff
+client.focused_inactive   #402e2e #402e2e #978965 #0000ff
+client.urgent             #FF0000 #FF0000 #00FF00 #0000ff
