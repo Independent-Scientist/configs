@@ -26,3 +26,6 @@
 #export PILOTRATE=115200
 
 test -s ~/.alias && . ~/.alias || true
+
+export JAVA_HOME=/usr/java/jdk1.8.0_101/
+export JDK_HOME=$JAVA_HOME
